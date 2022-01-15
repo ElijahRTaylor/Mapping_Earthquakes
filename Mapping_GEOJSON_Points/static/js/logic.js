@@ -1,22 +1,3 @@
-// Add console.log to check to see if our code is working.
-console.log("working");
-
-// Create the map object with a center and zoom level.
-// let map = L.map("mapid", {
-//     center: [
-//       36.1733, -120.1794
-//     ],
-//     zoom: 7
-//   });
-
-// // Create the map object with center at the San Francisco airport.
-// let map = L.map('mapid').setView([37.6213, -122.3790], 5);
-
-
-
-//  Add a marker to the map for Los Angeles, California.
-// let marker = L.marker([34.0522, -118.2437]).addTo(map);
-
 // Create the map object with center at the San Francisco airport.
 let map = L.map('mapid').setView([37.5, -122.5], 10);
 
@@ -41,10 +22,10 @@ let sanFranAirport =
 ]};
 
 // Grabbing our GeoJSON data.
-L.geoJSON(sanFranAirport).addTo(map);
+// L.geoJSON(sanFranAirport).addTo(map);
 
-// mapbox/streets-v11
-// mapbox/outdoors-v11
+// // mapbox/streets-v11
+// // mapbox/outdoors-v11
 // mapbox/light-v10
 // mapbox/dark-v10
 // mapbox/satellite-v9
@@ -58,83 +39,93 @@ attribution: 'Map data © <a href="https://www.openstreetmap.org/">OpenStreetMap
     accessToken: API_KEY
 });
 
-// let circle= L.circle([34.0522, -118.2437], {
-//   radius: 100
-// }).addTo(map);
+// // let circle= L.circle([34.0522, -118.2437], {
+// //   radius: 100
+// // }).addTo(map);
 
-// L.circleMarker(
-//   [34.0522, -118.2437], {
-//     radius: 300,
-//     color: "black",
-//     fillColor: '#ffffa1'
-//   }).addTo(map);
-// // Then we add our 'graymap' tile layer to the map.
-// streets.addTo(map);
+// // L.circleMarker(
+// //   [34.0522, -118.2437], {
+// //     radius: 300,
+// //     color: "black",
+// //     fillColor: '#ffffa1'
+// //   }).addTo(map);
+// // // Then we add our 'graymap' tile layer to the map.
+// // streets.addTo(map);
 
-// An array containing each city's location, state, and population.
+// // An array containing each city's location, state, and population.
 
-// Get data from cities.js
-// let cityData = cities;
+// // Get data from cities.js
+// // let cityData = cities;
+
+// // // Loop through the cities array and create one marker for each city.
+// // cities.forEach(function(city) {
+// //   console.log(city)
+// //  });
 
 // // Loop through the cities array and create one marker for each city.
-// cities.forEach(function(city) {
-//   console.log(city)
-//  });
+// // cityData.forEach(function(city) {
+// //   console.log(city)
+// //   L.marker(city.location).addTo(map);
+// // });
 
-// Loop through the cities array and create one marker for each city.
-// cityData.forEach(function(city) {
-//   console.log(city)
-//   L.marker(city.location).addTo(map);
-// });
-
-//  L.circleMarker(
-//   [34.0522, -118.2437], {
-//     radius: 300,
-//     color: "black",
-//     fillColor: '#ffffa1'
-//   }).addTo(map);
-// Then we add our 'graymap' tile layer to the map.
+// //  L.circleMarker(
+// //   [34.0522, -118.2437], {
+// //     radius: 300,
+// //     color: "black",
+// //     fillColor: '#ffffa1'
+// //   }).addTo(map);
+// // Then we add our 'graymap' tile layer to the map.
 
 
-// Loop through the cities array and create one marker for each city.
-// cityData.forEach(function(city) {
-//   console.log(city)
-//   L.circleMarker(city.location, {
-//     radius: city.population/100000
-//   })
-//   .bindPopup("<h2>" + city.city + ", " + city.state + "</h2> <hr> <h3>Population " + city.population.toLocaleString() + "</h3>")
-// .addTo(map);
-// });
+// // Loop through the cities array and create one marker for each city.
+// // cityData.forEach(function(city) {
+// //   console.log(city)
+// //   L.circleMarker(city.location, {
+// //     radius: city.population/100000
+// //   })
+// //   .bindPopup("<h2>" + city.city + ", " + city.state + "</h2> <hr> <h3>Population " + city.population.toLocaleString() + "</h3>")
+// // .addTo(map);
+// // });
 
-// Coordinates for each point to be used in the line.
-// let line = [
-//   [33.9416, -118.4085],
-//   [37.6213, -122.3790]
-// ];
+// // Coordinates for each point to be used in the line.
+// // let line = [
+// //   [33.9416, -118.4085],
+// //   [37.6213, -122.3790]
+// // ];
 
-// // Coordinates for each point to be used in the polyline.
-// let line = [
-//   [33.9416, -118.4085],
-//   [37.6213, -122.3790],
-//   [40.7899, -111.9791],
-//   [47.4502, -122.3088]
-// ]
+// // // Coordinates for each point to be used in the polyline.
+// // let line = [
+// //   [33.9416, -118.4085],
+// //   [37.6213, -122.3790],
+// //   [40.7899, -111.9791],
+// //   [47.4502, -122.3088]
+// // ]
 
-// // Create a polyline using the line coordinates and make the line red.
-// L.polyline(line, {
-//   color: "red"
+// // // Create a polyline using the line coordinates and make the line red.
+// // L.polyline(line, {
+// //   color: "red"
+// // }).addTo(map);
+
+// // Grabbing our GeoJSON data.
+// L.geoJSON(sanFranAirport, {
+//   // We turn each feature into a marker on the map.
+//   pointToLayer: function(feature, latlng) {
+//     console.log(feature);
+//     return L.marker(latlng)
+//     .bindPopup("<h2>" + feature.properties.city + "</h2>");
+//   }
+
 // }).addTo(map);
 
 // Grabbing our GeoJSON data.
-L.geoJSON(sanFranAirport, {
-  // We turn each feature into a marker on the map.
-  pointToLayer: function(feature, latlng) {
-    console.log(feature);
-    return L.marker(latlng)
-    .bindPopup("<h2>" + feature.properties.city + "</h2>");
-  }
+// L.geoJSON(sanFranAirport, {
+//   // We turn each feature into a marker on the map.
+//   pointToLayer: function(feature, latlng) {
+//     console.log(feature);
+//     return L.marker(latlng);
+//   }
 
-}).addTo(map);
+// }).addTo(map);
 
 L.geoJSON(sanFranAirport, {
   onEachFeature: function(feature, layer) {
